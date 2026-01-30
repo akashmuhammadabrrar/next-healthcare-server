@@ -5,7 +5,7 @@ const createPatient = async(payload:createPatientInput) => {
     const hashedPassword =  await bcrypt.hash(payload.password, 10);
     // create user by transaction for create multiple user at the same time (user and patient)
     const result = await prisma.$transaction(async(tnx) => {
-        // create user
+        // create user 
         const newUser = await tnx.user.create({
             data:{
                 email: payload.email,
