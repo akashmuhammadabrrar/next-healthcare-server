@@ -1,0 +1,3 @@
+src/app/modules/user/user.service.ts(9,19): error TS2339: Property 'user' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, DefaultArgs>, "$connect" | "$disconnect" | "$on" | "$transaction" | "$extends">'.
+src/routes/prismaTest.ts(9,31): error TS2339: Property 'user' does not exist on type 'PrismaClient<{ adapter: PrismaPg; }, never, DefaultArgs>'.
+src/routes/prismaTest.ts(27,35): error TS2339: Property 'user' does not exist on type 'PrismaClient<{ adapter: PrismaPg; }, never, DefaultArgs>'.
