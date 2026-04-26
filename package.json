@@ -7,7 +7,8 @@
     "start:dev": "tsx watch src/server.ts",
     "build": "tsc",
     "generate": "prisma generate",
-    "start:prod": "node dist/server.js"
+    "start:prod": "node dist/server.js",
+    "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -48,5 +49,8 @@
   "bugs": {
     "url": "https://github.com/akashmuhammadabrrar/next-healthcare-server/issues"
   },
-  "homepage": "https://github.com/akashmuhammadabrrar/next-healthcare-server#readme"
+  "homepage": "https://github.com/akashmuhammadabrrar/next-healthcare-server#readme",
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
 }
