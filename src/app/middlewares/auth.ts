@@ -1,5 +1,6 @@
 import { NextFunction,Request, Response } from "express"
 import { jwtHelper } from "../../helper/jwtHelper"
+import config from "../../config"
 
 const auth = (...roles: string[]) => {
     return async (req: Request & {user?: any}, res: Response, next: NextFunction) => {
@@ -9,7 +10,7 @@ const auth = (...roles: string[]) => {
                 throw new Error("You are not authorized!")
             }
             // verify token 
-            const verifyUser = jwtHelper.verifyToken(token, "asdf");
+            const verifyUser = jwtHelper.verifyToken(token, config.jwt.access_secret as string);
             req.user = verifyUser;
             if(roles.length && !roles.includes(verifyUser.role)){
                 throw new Error("You are not authorized!")
