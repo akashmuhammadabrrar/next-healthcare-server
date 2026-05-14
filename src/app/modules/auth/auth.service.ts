@@ -3,6 +3,10 @@ import { jwtHelper } from "../../../helper/jwtHelper";
 import { prisma } from "../../../lib/prisma";
 import bcrypt from "bcryptjs";
 import config from "../../../config";
+import httpStatus from "http-status"
+import APIError from "../../errors/Api.errors";
+
+
 
 const login = async (payload: {email: string, password: string} ) => {
   console.log(payload);
@@ -14,7 +18,7 @@ const login = async (payload: {email: string, password: string} ) => {
   })
   const isCorrectPassword = await bcrypt.compare(payload.password, user.password);
   if(!isCorrectPassword){
-    throw new Error("Password is not correct")
+    throw new APIError(httpStatus.BAD_REQUEST, "Password is not correct")
   }
 
 //   generate jwt access token
