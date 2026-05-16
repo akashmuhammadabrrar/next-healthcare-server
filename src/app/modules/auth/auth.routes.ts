@@ -1,13 +1,14 @@
-import experess  from "express";
+import express from "express";
 import { AuthController } from "./auth.controller";
+import validateRequest from "../../middlewares/validateRequest";
+import { AuthValidation } from "./auth.validation";
 
+const router = express.Router();
 
-const router =  experess.Router();
-
-// create patient user
 router.post(
-     "/login",
-     AuthController.login
-)
+    "/login",
+    validateRequest(AuthValidation.loginValidationSchema),
+    AuthController.login
+);
 
 export const atuhRoutes = router;
